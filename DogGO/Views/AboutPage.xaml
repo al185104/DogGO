@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="DogGO.Views.AboutPage"
+            xmlns:vm="clr-namespace:DogGO.ViewModels"
+            xmlns:tabbed="clr-namespace:DogGO.Views.Tabbed"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="{StaticResource Primary}"
+            android:TabbedPage.IsSmoothScrollEnabled="True"
+            android:TabbedPage.IsSwipePagingEnabled="True"
+            android:TabbedPage.BarSelectedItemColor="{StaticResource Accent}"
+            BarBackgroundColor="White"
+            BackgroundColor="{StaticResource Background}"
+            xmlns:helper="clr-namespace:DogGO.Helpers"
+            Title="{Binding Title}">
+    
+    <TabbedPage.BindingContext>
+        <vm:AboutViewModel />
+    </TabbedPage.BindingContext>
+
+    <tabbed:HomePage Title="Home" IconImageSource="{FontImage FontFamily=Material, Glyph={x:Static helper:IconFont.HomeOutline}}"/>
+    <tabbed:InboxPage Title="Inbox" IconImageSource="{FontImage FontFamily=Material, Glyph={x:Static helper:IconFont.EmailOutline}}"/>
+    <tabbed:FavoritePage Title="Favorite" IconImageSource="{FontImage FontFamily=Material, Glyph={x:Static helper:IconFont.HeartOutline}}"/>
+    <tabbed:ProfilePage Title="Profile" IconImageSource="{FontImage FontFamily=Material, Glyph={x:Static helper:IconFont.AccountOutline}}"/>
+
+</TabbedPage>

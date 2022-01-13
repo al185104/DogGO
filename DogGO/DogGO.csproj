@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Common\Fonts\Bitter-Bold.ttf" />
+    <None Remove="Common\Fonts\Bitter-Light.ttf" />
+    <None Remove="Common\Fonts\Bitter-Regular.ttf" />
+    <None Remove="Common\Fonts\materialdesignicons-webfont.ttf" />
+    <None Remove="Common\Fonts\Raleway-Bold.ttf" />
+    <None Remove="Common\Fonts\Raleway-Light.ttf" />
+    <None Remove="Common\Fonts\Raleway-Regular.ttf" />
+    <None Remove="Common\Images\dog_01.png" />
+    <None Remove="Common\Images\dog_02.png" />
+    <None Remove="gettingstarted.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Common\Fonts\Bitter-Bold.ttf" />
+    <EmbeddedResource Include="Common\Fonts\Bitter-Light.ttf" />
+    <EmbeddedResource Include="Common\Fonts\Bitter-Regular.ttf" />
+    <EmbeddedResource Include="Common\Fonts\materialdesignicons-webfont.ttf" />
+    <EmbeddedResource Include="Common\Fonts\Raleway-Bold.ttf" />
+    <EmbeddedResource Include="Common\Fonts\Raleway-Light.ttf" />
+    <EmbeddedResource Include="Common\Fonts\Raleway-Regular.ttf" />
+    <EmbeddedResource Include="Common\Images\dog_01.png" />
+    <EmbeddedResource Include="Common\Images\dog_02.png" />
+    <EmbeddedResource Include="gettingstarted.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\GettingStartedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tabbed\FavoritePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tabbed\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tabbed\InboxPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tabbed\ProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
