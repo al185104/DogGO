@@ -5,23 +5,44 @@
              xmlns:helper="clr-namespace:DogGO.Helpers"
              BackgroundColor="{StaticResource Background}">
     <ContentPage.Content>
-        <StackLayout Padding="0" Spacing="10">
-            <Label Text="Find a new friend" Margin="20,10"
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,*,Auto,*">
+            <Label Grid.Row="0" Text="Find a new friend" Margin="20,10"
                    FontFamily="RalewayBold" FontSize="Medium"/>
 
-            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="20" Margin="25,0">
+            <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="20" Margin="25,0">
                 <Frame Grid.Column="0" HasShadow="False" Padding="0" CornerRadius="20">
-                    <SearchBar Placeholder="Search for Pets"/>
+                    <SearchBar Placeholder="Search for Pets" />
                 </Frame>
                 <Button Grid.Column="1" Text="{x:Static helper:IconFont.Tune}" FontFamily="Material" FontSize="Title" TextColor="{StaticResource Primary}"
-                        BackgroundColor="{StaticResource Background}" BorderColor="#E7E7E7" BorderWidth="1" WidthRequest="60" CornerRadius="15"
-                        HorizontalOptions="Center" Padding="0"/>
+                        BackgroundColor="{StaticResource Background}" BorderColor="#E7E7E7" BorderWidth="1" WidthRequest="60" HeightRequest="50" CornerRadius="15"
+                        HorizontalOptions="Center" VerticalOptions="FillAndExpand" Padding="0"/>
             </Grid>
-            
-            <Label Text="Pet categories" Margin="20,10"
+
+            <Label Grid.Row="2" Text="Pet categories" Margin="20,10"
                    FontFamily="RalewayBold" FontSize="Medium"/>
 
-            <CollectionView>
+            <CollectionView Grid.Row="3" HeightRequest="100">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <Label Text="No categories to show" HorizontalTextAlignment="Center"/>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="{StaticResource Accent}">
+                            <Grid ColumnDefinitions="Auto,*">
+                                <Frame HeightRequest="40" WidthRequest="40" CornerRadius="20" IsClippedToBounds="True" BackgroundColor="Red">
+                                    <Image Source="" Aspect="AspectFit"/>
+                                </Frame>
+                                <Label Text="{Binding .}"/>
+                            </Grid>
+                        </Frame>        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <CollectionView Grid.Row="4" >
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20"/>
                 </CollectionView.ItemsLayout>
@@ -37,12 +58,34 @@
                                 </Frame>
                                 <Label Text="{Binding .}"/>
                             </Grid>
-                        </Frame>        
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
             
-            
-        </StackLayout>
+            <Label Grid.Row="5" Text="Newest pets" Margin="20,10"
+                   FontFamily="RalewayBold" FontSize="Medium"/>
+
+            <CollectionView Grid.Row="6" >
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <Label Text="No pets to show" HorizontalTextAlignment="Center"/>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="{StaticResource Accent}">
+                            <Grid ColumnDefinitions="Auto,*">
+                                <Frame HeightRequest="40" WidthRequest="40" CornerRadius="20" IsClippedToBounds="True" BackgroundColor="Red">
+                                    <Image Source="" Aspect="AspectFit"/>
+                                </Frame>
+                                <Label Text="{Binding .}"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
